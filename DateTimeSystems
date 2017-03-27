@@ -1,0 +1,59 @@
+//Rextester.Program.Main is the entry point for your code. Don't change it.
+//Compiler version 4.0.30319.17929 for Microsoft (R) .NET Framework 4.5
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace Rextester
+{
+    public class Program
+    {
+        public static void DisplayDateTime(string name, DateTime myDateTime)
+        {
+            Console.WriteLine(name + " = " + myDateTime);
+            
+            //display the DateTime's properties
+            Console.WriteLine(name + ".Year = " + myDateTime.Year);
+            Console.WriteLine(name + ".Month = " + myDateTime.Month);
+            Console.WriteLine(name + ".Day = " + myDateTime.Day);
+            Console.WriteLine(name + ".Hour = " + myDateTime.Hour);
+            Console.WriteLine(name + ".Minute = " + myDateTime.Minute);
+            Console.WriteLine(name + ".Second = " + myDateTime.Second);
+            Console.WriteLine(name + ".Millisecond = " + myDateTime.Millisecond);
+            Console.WriteLine(name + ".Ticks = " + myDateTime.Ticks);
+        }
+        
+        public static void Main(string[] args)
+        {
+            //Your code goes here
+            int year = 2017;
+            int month = 3;
+            int day 27;
+            DateTime myDateTime = new DateTime(year, month, day);
+            
+            int hour = 17;
+            int minute = 47;
+            int second 50;
+            int millisecond = 23;
+            DateTime myDateTime2 = new DateTime(year, month, day, hour, minute, second, millisecond);
+            
+            System.Globalization.JulianCalendar myCalendar = new System.Globalization.JulianCalendar();
+            DateTime myDateTime3 = new DateTime(year, month, day, myCalendar);
+            
+            DateTime myDateTime4 = new DateTime(0);
+            
+            //display various DateTime instances
+            DisplayDateTime("Today's Date", myDateTime);
+            DisplayDateTime("Today's Date and Time", myDateTime2);
+            DisplayDateTime("Today's Date alternate", myDateTime3);
+            DisplayDateTime("Number of ticks", myDateTime4);
+            
+            TimeSpan myTimeSpan = new TimeSpan (4,12,10);
+            myDateTime4 += myTimeSpan;
+            DisplayDateTime("Number of ticks", myDateTime4);
+            
+        }
+    }
+}
